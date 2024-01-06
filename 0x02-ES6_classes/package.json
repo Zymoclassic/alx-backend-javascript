@@ -4,8 +4,10 @@
       "check-lint": "lint [0-9]*.js",
       "dev": "npx babel-node",
       "test": "jest",
-      "full-test": "./node_modules/.bin/eslint [0-9]*.js && jest"
+      "full-test": "./node_modules/.bin/eslint [0-9]*.js && jest",
+      "type": "module"
     },
+    "type": "module",
     "devDependencies": {
       "@babel/core": "^7.6.0",
       "@babel/preset-env": "^7.6.0",
