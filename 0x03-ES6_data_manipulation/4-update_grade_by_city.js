@@ -1,34 +1,12 @@
-import Currency from './3-currency';
-
-export default class Pricing {
-  constructor(amount, currency) {
-    this._amount = amount;
-    this._currency = currency;
+export default function updateStudentGradeByCity(students, city, newGrades) {
+  if(!Array.isArray(students) || !Array.isArray(newGrades)) {
+    return [];
   }
 
-  get amount() {
-    return this._amount;
-  }
-
-  get currency() {
-    return this._currency;
-  }
-
-  set amount(newAmount) {
-    if (typeof newAmount !== 'number') throw TypeError('amount must be a number');
-    this._amount = newAmount;
-  }
-
-  set currency(newCurrency) {
-    if (!(newCurrency instanceof Currency)) throw TypeError('currency must be a Currency');
-    this._currency = newCurrency;
-  }
-
-  displayFullPrice() {
-    return `${this.amount} ${this.currency.name} (${this.currency.code})`;
-  }
-
-  static convertPrice(amount, conversionRate) {
-    return amount * conversionRate;
-  }
+  const theStudents = students.filter((student) => student.location === 
+  city).map((student) => {
+    const findItem = newGrades.find((student2) => student.id === student2.id);
+    return { ...student, grade: findItem ? findItem.grade: "N/A" };
+  });
+  return theStudents;
 }
